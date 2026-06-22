@@ -1,63 +1,46 @@
 import { motion } from "framer-motion"
-import { useState } from "react"
-import { TrendingUp, Target, Briefcase, Palette, Home, BarChart3 } from "lucide-react"
+import Icon from "@/components/ui/icon"
 
-const businessTypes = [
+const technologies = [
   {
-    id: "retail",
-    name: "Ритейл",
-    icon: <Briefcase className="w-6 h-6" />,
-    multiplier: 3.2,
-    description: "E-commerce и магазины",
+    name: "CAD/CAM-фрезерование",
+    description: "Коронки, мосты, каркасы и абатменты с контролем допусков и шероховатости — высокая точность и воспроизводимость.",
+    icon: "Cog",
+    gradient: "from-blue-500/20 to-blue-600/10",
+    accent: "text-blue-400",
   },
   {
-    id: "real-estate",
-    name: "Недвижимость",
-    icon: <Home className="w-6 h-6" />,
-    multiplier: 4.1,
-    description: "Агенты и управление",
+    name: "3D-печать",
+    description: "Шаблоны, модели, каппы и временные конструкции в короткие сроки без потери качества.",
+    icon: "Box",
+    gradient: "from-purple-500/20 to-purple-600/10",
+    accent: "text-purple-400",
   },
   {
-    id: "artist",
-    name: "Креатив",
-    icon: <Palette className="w-6 h-6" />,
-    multiplier: 2.8,
-    description: "Блогеры и артисты",
+    name: "Wax-up и моделирование",
+    description: "Виртуальное моделирование и согласование эстетики и функции до начала производства.",
+    icon: "Sparkles",
+    gradient: "from-pink-500/20 to-pink-600/10",
+    accent: "text-pink-400",
   },
   {
-    id: "professional",
-    name: "B2B услуги",
-    icon: <Target className="w-6 h-6" />,
-    multiplier: 3.7,
-    description: "Консалтинг и сервисы",
+    name: "Цифровые оттиски (STL)",
+    description: "Приём сканов без гипсовых моделей, контроль качества и выявление артефактов до запуска производства.",
+    icon: "ScanLine",
+    gradient: "from-green-500/20 to-green-600/10",
+    accent: "text-green-400",
   },
 ]
 
-// Функция форматирования чисел с пробелами (русская локаль)
-const formatRub = (num: number) => {
-  return num.toLocaleString('ru-RU')
-}
+const advantages = [
+  { value: "10 мкм", label: "Точность фрезерования" },
+  { value: "−40%", label: "Меньше переделок" },
+  { value: "24/7", label: "Цифровой приём заказов" },
+]
 
-export default function ROICalculatorHome() {
-  // Бюджет в рублях (100 000 - 2 500 000)
-  const [selectedBudget, setSelectedBudget] = useState(500000)
-  const [selectedBusiness, setSelectedBusiness] = useState("retail")
-
-  const selectedBusinessType = businessTypes.find((b) => b.id === selectedBusiness)
-  const multiplier = selectedBusinessType?.multiplier || 3.2
-
-  const calculateROI = (budget: number) => {
-    const baseReturn = budget * multiplier
-    const scaleFactor = budget / 1000000
-    return Math.round(baseReturn * (1 + scaleFactor * 0.3))
-  }
-
-  const calculateMonthlyRevenue = (budget: number) => {
-    return Math.round(calculateROI(budget) / 12)
-  }
-
+export default function Technologies() {
   return (
-    <section className="py-24 bg-black relative backdrop-blur-sm">
+    <section id="technologies" className="py-24 bg-black relative backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -66,187 +49,54 @@ export default function ROICalculatorHome() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">Рассчитайте ROI</h2>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">Цифровые технологии</h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Узнайте, какую выручку вы можете получить с нашими маркетинговыми стратегиями
+            Работаем в едином цифровом контуре с клиниками — сокращаем сроки и снижаем число переделок.
           </p>
         </motion.div>
 
-        <div className="bg-gray-900/40 border border-gray-700/30 rounded-3xl p-8 backdrop-blur-sm relative overflow-hidden">
-          {/* Subtle animated background */}
-          <motion.div
-            className="absolute inset-0 opacity-20"
-            animate={{
-              background: [
-                "radial-gradient(circle at 20% 20%, rgba(59,130,246,0.1) 0%, transparent 50%)",
-                "radial-gradient(circle at 80% 80%, rgba(147,51,234,0.1) 0%, transparent 50%)",
-                "radial-gradient(circle at 20% 80%, rgba(34,197,94,0.1) 0%, transparent 50%)",
-                "radial-gradient(circle at 80% 20%, rgba(249,115,22,0.1) 0%, transparent 50%)",
-                "radial-gradient(circle at 20% 20%, rgba(59,130,246,0.1) 0%, transparent 50%)",
-              ],
-            }}
-            transition={{ duration: 15, repeat: Infinity }}
-          />
-
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Controls */}
-            <div className="space-y-8">
-              {/* Business Type Selection */}
-              <div>
-                <label className="block text-lg font-medium text-white mb-4">Выберите тип бизнеса</label>
-                <div className="grid grid-cols-2 gap-3">
-                  {businessTypes.map((business) => (
-                    <motion.button
-                      key={business.id}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      onClick={() => setSelectedBusiness(business.id)}
-                      className={`p-4 rounded-xl border transition-all duration-200 text-left ${
-                        selectedBusiness === business.id
-                          ? "bg-blue-500/20 border-blue-500/50 text-white"
-                          : "bg-gray-800/50 border-gray-700/50 text-gray-300 hover:border-gray-600/50"
-                      }`}
-                    >
-                      <div className="flex items-center space-x-3 mb-2">
-                        <div
-                          className={`p-2 rounded-lg ${
-                            selectedBusiness === business.id ? "bg-blue-500/30" : "bg-gray-700/50"
-                          }`}
-                        >
-                          {business.icon}
-                        </div>
-                        <div>
-                          <div className="font-medium">{business.name}</div>
-                          <div className="text-xs opacity-70">{business.description}</div>
-                        </div>
-                      </div>
-                    </motion.button>
-                  ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12">
+          {technologies.map((tech, index) => (
+            <motion.div
+              key={tech.name}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -5 }}
+              className={`bg-gradient-to-br ${tech.gradient} border border-gray-800/50 rounded-3xl p-8 backdrop-blur-sm hover:border-gray-700/50 transition-all duration-300 group`}
+            >
+              <div className="flex items-start space-x-5">
+                <div className={`w-14 h-14 rounded-2xl bg-gray-900/60 border border-gray-800 flex items-center justify-center shrink-0 ${tech.accent}`}>
+                  <Icon name={tech.icon} size={28} fallback="CircleAlert" />
+                </div>
+                <div className="space-y-2">
+                  <h3 className={`text-2xl font-bold text-white transition-colors group-hover:${tech.accent}`}>
+                    {tech.name}
+                  </h3>
+                  <p className="text-gray-400 leading-relaxed">{tech.description}</p>
                 </div>
               </div>
-
-              {/* Budget Slider */}
-              <div>
-                <label className="block text-lg font-medium text-white mb-4">Месячный бюджет на маркетинг</label>
-                <div className="relative">
-                  <input
-                    type="range"
-                    min="100000"
-                    max="2500000"
-                    step="50000"
-                    value={selectedBudget}
-                    onChange={(e) => setSelectedBudget(Number(e.target.value))}
-                    className="w-full h-3 bg-gray-700 rounded-lg appearance-none cursor-pointer"
-                    style={{
-                      background: `linear-gradient(to right, #3b82f6 0%, #3b82f6 ${((selectedBudget - 100000) / (2500000 - 100000)) * 100}%, #374151 ${((selectedBudget - 100000) / (2500000 - 100000)) * 100}%, #374151 100%)`,
-                    }}
-                  />
-                  <div className="flex justify-between text-sm text-gray-400 mt-2">
-                    <span>100 тыс.</span>
-                    <span>2.5 млн</span>
-                  </div>
-                </div>
-                <div className="text-center mt-4">
-                  <span className="text-3xl font-bold text-white">{formatRub(selectedBudget)} &#8381;</span>
-                  <span className="text-gray-400 ml-2">в месяц</span>
-                </div>
-              </div>
-
-              {/* Data Disclaimer */}
-              <div className="bg-gray-800/30 border border-gray-700/50 rounded-xl p-4">
-                <div className="flex items-center space-x-3 mb-2">
-                  <BarChart3 className="w-5 h-5 text-blue-400" />
-                  <span className="text-sm font-medium text-white">На основе реальных данных</span>
-                </div>
-                <p className="text-xs text-gray-400 leading-relaxed">
-                  Прогнозы основаны на реальных показателях наших клиентов из аналогичных
-                  отраслей и бюджетных категорий. Индивидуальные результаты могут отличаться.
-                </p>
-              </div>
-            </div>
-
-            {/* Results */}
-            <div className="space-y-8">
-              {/* ROI Circle */}
-              <div className="relative w-48 h-48 mx-auto">
-                <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r="35"
-                    stroke="currentColor"
-                    strokeWidth="6"
-                    fill="none"
-                    className="text-gray-700"
-                  />
-                  <motion.circle
-                    cx="50"
-                    cy="50"
-                    r="35"
-                    stroke="url(#gradient)"
-                    strokeWidth="6"
-                    fill="none"
-                    strokeLinecap="round"
-                    initial={{ strokeDasharray: "0 219.8" }}
-                    animate={{
-                      strokeDasharray: `${Math.min((calculateROI(selectedBudget) / (selectedBudget * 8)) * 219.8, 219.8)} 219.8`,
-                    }}
-                    transition={{ duration: 1, ease: "easeOut" }}
-                  />
-                  <defs>
-                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#3b82f6" />
-                      <stop offset="50%" stopColor="#8b5cf6" />
-                      <stop offset="100%" stopColor="#06d6a0" />
-                    </linearGradient>
-                  </defs>
-                </svg>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <motion.div
-                      key={`${selectedBudget}-${selectedBusiness}`}
-                      initial={{ scale: 0.8, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
-                      className="text-2xl font-bold text-white"
-                    >
-                      {Math.round((calculateROI(selectedBudget) / selectedBudget) * 100)}%
-                    </motion.div>
-                    <div className="text-gray-400 text-sm">ROI</div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Revenue Cards */}
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-gray-800/50 rounded-2xl p-6 border border-gray-700/50 text-center">
-                  <div className="w-8 h-8 text-green-400 mx-auto mb-2 flex items-center justify-center text-2xl font-bold">&#8381;</div>
-                  <motion.div
-                    key={`monthly-${selectedBudget}-${selectedBusiness}`}
-                    initial={{ scale: 0.8, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    className="text-2xl font-bold text-white mb-1"
-                  >
-                    {formatRub(calculateMonthlyRevenue(selectedBudget))}
-                  </motion.div>
-                  <div className="text-gray-400 text-sm">Выручка/мес</div>
-                </div>
-
-                <div className="bg-gray-800/50 rounded-2xl p-6 border border-gray-700/50 text-center">
-                  <TrendingUp className="w-8 h-8 text-blue-400 mx-auto mb-2" />
-                  <motion.div
-                    key={`annual-${selectedBudget}-${selectedBusiness}`}
-                    initial={{ scale: 0.8, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    className="text-2xl font-bold text-white mb-1"
-                  >
-                    {formatRub(calculateROI(selectedBudget))}
-                  </motion.div>
-                  <div className="text-gray-400 text-sm">Выручка/год</div>
-                </div>
-              </div>
-            </div>
-          </div>
+            </motion.div>
+          ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="bg-gray-900/40 border border-gray-700/30 rounded-3xl p-8 backdrop-blur-sm grid grid-cols-1 sm:grid-cols-3 gap-8 text-center"
+        >
+          {advantages.map((item) => (
+            <div key={item.label}>
+              <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">
+                {item.value}
+              </div>
+              <div className="text-gray-400">{item.label}</div>
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   )

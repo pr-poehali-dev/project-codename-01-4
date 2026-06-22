@@ -4,24 +4,24 @@ import { Search, Lightbulb, Rocket } from "lucide-react"
 const steps = [
   {
     number: "01",
-    title: "Анализ и стратегия",
-    description: "Глубоко погружаемся в ваши задачи, исследуем идеи и формируем стратегию для долгосрочного успеха.",
+    title: "Приём оттисков и планирование",
+    description: "Принимаем цифровые оттиски (STL), КТ и сканы клиники. Контролируем качество сканов и выявляем артефакты до запуска производства.",
     icon: <Search className="w-8 h-8" />,
     mockup: "discovery",
     gradient: "from-blue-500/20 to-blue-600/10",
   },
   {
     number: "02",
-    title: "Разработка и тесты",
-    description: "Создаем решения под ваши цели и тщательно тестируем их для максимальной надежности.",
+    title: "Моделирование и производство",
+    description: "Wax-up и виртуальное моделирование, согласование эстетики и функции. CAD/CAM-фрезерование и 3D-печать с контролем допусков.",
     icon: <Lightbulb className="w-8 h-8" />,
     mockup: "development",
     gradient: "from-purple-500/20 to-purple-600/10",
   },
   {
     number: "03",
-    title: "Запуск и поддержка",
-    description: "Бесшовно внедряем решение и обеспечиваем его стабильную работу с постоянной поддержкой.",
+    title: "Контроль качества и поддержка",
+    description: "Проверяем краевое прилегание, окклюзию и посадку. Доставляем точно в срок и сопровождаем фиксацию техподдержкой.",
     icon: <Rocket className="w-8 h-8" />,
     mockup: "launch",
     gradient: "from-green-500/20 to-green-600/10",
@@ -30,7 +30,7 @@ const steps = [
 
 export default function HowWeWork() {
   return (
-    <section className="py-24 bg-black relative">
+    <section id="how-we-work" className="py-24 bg-black relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -41,7 +41,7 @@ export default function HowWeWork() {
         >
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">Как мы работаем</h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Простой и эффективный подход к развитию вашего бренда на высшем уровне.
+            Единый цифровой контур с клиникой — от приёма оттисков до доставки готовой конструкции.
           </p>
         </motion.div>
 

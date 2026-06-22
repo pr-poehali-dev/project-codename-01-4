@@ -6,9 +6,9 @@ import { cn } from "@/lib/utils"
 
 export default function Hero() {
   const stats = [
-    { value: 500, suffix: "+", label: "Успешных кампаний" },
-    { value: 98, suffix: "%", label: "Довольных клиентов" },
-    { value: 1, suffix: " млрд+", label: "Выручка клиентов" },
+    { value: 50000, suffix: "+", label: "Изготовленных конструкций" },
+    { value: 99, suffix: "%", label: "Точность посадки" },
+    { value: 120, suffix: "+", label: "Клиник-партнёров" },
   ]
 
   return (
@@ -46,7 +46,7 @@ export default function Hero() {
                 className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 border border-white/30 rounded-full text-sm text-white font-medium backdrop-blur-sm"
               >
                 <div className="w-2 h-2 bg-green-400 rounded-full mr-3 animate-pulse"></div>
-                <span>Маркетинговое агентство полного цикла</span>
+                <span>Зуботехническая лаборатория полного цикла</span>
               </motion.div>
 
               <motion.h1
@@ -55,8 +55,8 @@ export default function Hero() {
                 transition={{ duration: 1, delay: 0.3 }}
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight"
               >
-                <span className="block text-white mb-2">МАРКЕТИНГОВОЕ</span>
-                <span className="block text-white mb-2">АГЕНТСТВО ДЛЯ</span>
+                <span className="block text-white mb-2">ЗУБОТЕХНИЧЕСКАЯ</span>
+                <span className="block text-white mb-2">ЛАБОРАТОРИЯ ДЛЯ</span>
                 <span
                   className={cn(
                     "block mb-2 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent font-pacifico",
@@ -65,9 +65,9 @@ export default function Hero() {
                     textShadow: "0 0 40px rgba(147, 51, 234, 0.5)",
                   }}
                 >
-                  Бизнеса
+                  Клиник
                 </span>
-                <span className="block text-gray-300">ЛЮБОГО МАСШТАБА</span>
+                <span className="block text-gray-300">И ВРАЧЕЙ</span>
               </motion.h1>
 
               <motion.p
@@ -76,8 +76,9 @@ export default function Hero() {
                 transition={{ duration: 0.8, delay: 0.6 }}
                 className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto lg:mx-0"
               >
-                В Pulse Digital мы фокусируемся на анализе рыночного спроса, понимании поведения клиентов и реализации
-                стратегий, которые действительно работают. От SEO и SMM до контент-стратегии и email-маркетинга.
+                Изготавливаем несъёмные и съёмные протезы, ортодонтические аппараты и хирургические шаблоны
+                в едином цифровом контуре. CAD/CAM-фрезерование, 3D-печать и контроль допусков — предсказуемый
+                клинический результат и минимум переделок.
               </motion.p>
             </div>
 
@@ -90,7 +91,7 @@ export default function Hero() {
               <a href="#get-started">
                 <AnimatedButton variant="slim" className="bg-white text-black hover:bg-gray-100">
                   <span className="flex items-center">
-                    Начать
+                    Стать партнёром
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </span>
                 </AnimatedButton>
@@ -119,8 +120,8 @@ export default function Hero() {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-white">Google Partner</p>
-                    <p className="text-xs text-gray-400">Сертификат</p>
+                    <p className="text-sm font-medium text-white">CAD/CAM</p>
+                    <p className="text-xs text-gray-400">Точность до 10 мкм</p>
                   </div>
                 </div>
 
@@ -132,8 +133,8 @@ export default function Hero() {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-white">Аккредитация</p>
-                    <p className="text-xs text-gray-400">Рейтинг A+</p>
+                    <p className="text-sm font-medium text-white">Гарантия</p>
+                    <p className="text-xs text-gray-400">На все работы</p>
                   </div>
                 </div>
 
@@ -144,8 +145,8 @@ export default function Hero() {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-white">Проверено</p>
-                    <p className="text-xs text-gray-400">Надежный партнер</p>
+                    <p className="text-sm font-medium text-white">Сроки</p>
+                    <p className="text-xs text-gray-400">Точно в срок</p>
                   </div>
                 </div>
               </div>
