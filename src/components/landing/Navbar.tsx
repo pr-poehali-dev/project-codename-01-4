@@ -60,8 +60,8 @@ export default function Navbar() {
                 <a href="#services" className="text-sm text-gray-300 hover:text-blue-400 transition-colors">
                   Услуги
                 </a>
-                <a href="#how-we-work" className="text-sm text-gray-300 hover:text-purple-400 transition-colors">
-                  Как мы работаем
+                <a href="#cases" className="text-sm text-gray-300 hover:text-purple-400 transition-colors">
+                  Работы
                 </a>
                 <a href="#technologies" className="text-sm text-gray-300 hover:text-green-400 transition-colors">
                   Технологии
@@ -98,8 +98,8 @@ export default function Navbar() {
               <a href="#services" className="block text-gray-300 hover:text-blue-400">
                 Услуги
               </a>
-              <a href="#how-we-work" className="block text-gray-300 hover:text-purple-400">
-                Как мы работаем
+              <a href="#cases" className="block text-gray-300 hover:text-purple-400">
+                Работы
               </a>
               <a href="#technologies" className="block text-gray-300 hover:text-green-400">
                 Технологии
