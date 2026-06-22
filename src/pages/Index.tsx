@@ -8,6 +8,7 @@ import {
   InnovativeServices,
   ROICalculatorHome,
   CasesGallery,
+  LabGallery,
   AnimatedFooter,
   MouseMoveEffect,
 } from "@/components/landing"
@@ -26,6 +27,7 @@ export default function Index() {
         <HowWeWork />
         <InnovativeServices />
         <CasesGallery />
+        <LabGallery />
         <ROICalculatorHome />
         <AnimatedFooter />
       </div>
